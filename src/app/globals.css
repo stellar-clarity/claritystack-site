@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue: #4169E1;
+  --blue-dark: #2f52c4;
+  --silver: #C0C0C0;
+  --silver-light: #f0f2f7;
+}
+
+html {
+  scroll-behavior: smooth;
+}
