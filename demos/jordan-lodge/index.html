@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jordan Lodge | Wealthy Minded Fitness</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:   #0a0a0a;
+      --green:   #2D6A2D;
+      --green-light: #3a8a3a;
+      --white:   #FFFFFF;
+      --gray:    #1a1a1a;
+      --gray-mid:#2c2c2c;
+      --text-muted: #aaaaaa;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: rgba(10,10,10,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(45,106,45,0.3);
+    }
+    .nav-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+    .nav-cta {
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--green-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0a0a0a 0%, #0f1f0f 50%, #0a0a0a 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(45,106,45,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2.4rem, 8vw, 4.5rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      max-width: 700px;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 span { color: var(--green); }
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 420px;
+      margin-bottom: 2.5rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1rem 2.25rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--green-light); transform: translateY(-2px); }
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, var(--green), transparent);
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 5rem 1.5rem; }
+    .section-label {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.75rem, 5vw, 2.75rem);
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: var(--green);
+      margin-bottom: 1.5rem;
+    }
+    .container { max-width: 680px; margin: 0 auto; }
+
+    /* ── ABOUT ── */
+    .about { background: var(--gray); }
+    .about-inner { display: flex; flex-direction: column; gap: 1.5rem; }
+    .about p {
+      font-size: 1rem;
+      color: #cccccc;
+      line-height: 1.8;
+    }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .stat {
+      text-align: center;
+      padding: 1.25rem 0.5rem;
+      border: 1px solid rgba(45,106,45,0.35);
+      border-radius: 4px;
+      background: rgba(45,106,45,0.06);
+    }
+    .stat-num {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.75rem;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── SERVICES ── */
+    .services { background: var(--black); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      background: var(--gray);
+      border: 1px solid var(--gray-mid);
+      border-radius: 4px;
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--green);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .service-card:hover { border-color: rgba(45,106,45,0.5); transform: translateY(-3px); }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .service-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      color: var(--white);
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+    .service-cta {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      text-decoration: none;
+    }
+    .service-cta::after { content: ' →'; }
+    .service-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { background: var(--gray); }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .testimonial-card {
+      background: var(--black);
+      border-left: 3px solid var(--green);
+      padding: 1.75rem 1.5rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .testimonial-quote {
+      font-size: 0.95rem;
+      color: #cccccc;
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1.25rem;
+    }
+    .testimonial-quote::before { content: '"'; color: var(--green); font-size: 1.5rem; line-height: 0; vertical-align: -0.4rem; margin-right: 0.2rem; }
+    .testimonial-quote::after  { content: '"'; color: var(--green); font-size: 1.5rem; line-height: 0; vertical-align: -0.4rem; margin-left:  0.2rem; }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .author-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+    .author-name {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    .author-result {
+      font-size: 0.75rem;
+      color: var(--green);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── INSTAGRAM ── */
+    .instagram { background: var(--black); text-align: center; }
+    .ig-handle {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--green);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3px;
+      margin: 1.5rem 0;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ig-cell {
+      aspect-ratio: 1;
+      background: var(--gray-mid);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: rgba(45,106,45,0.4);
+      overflow: hidden;
+      position: relative;
+    }
+    .ig-cell::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(45,106,45,0.08), transparent);
+    }
+    .ig-follow-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: transparent;
+      border: 2px solid var(--green);
+      color: var(--green);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 1.75rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .ig-follow-btn:hover { background: var(--green); color: var(--white); }
+
+    /* ── CTA SECTION ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0f1f0f 0%, #0a0a0a 100%);
+      text-align: center;
+      padding: 5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(45,106,45,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-section .section-title { margin-bottom: 0.75rem; }
+    .cta-section p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      max-width: 400px;
+      margin: 0 auto 2.5rem;
+    }
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid var(--white);
+      color: var(--white);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.9rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover { background: var(--white); color: var(--black); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #050505;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid var(--gray-mid);
+    }
+    .footer-logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+    footer p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (min-width: 560px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .cta-buttons { flex-direction: row; justify-content: center; }
+    }
+    @media (min-width: 768px) {
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">Wealthy Minded Fitness</span>
+    <a href="https://instagram.com/wealthymindedfitness" target="_blank" class="nav-cta">Work With Jordan</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Celebrity Fitness Trainer</p>
+    <h1>Train Like Your<br /><span>Life Depends</span><br />On It</h1>
+    <p class="hero-sub">Stop settling. Start transforming. Jordan Lodge builds athletes, executives, and everyday people into the best versions of themselves.</p>
+    <a href="https://instagram.com/wealthymindedfitness" target="_blank" class="btn-primary">Work With Jordan</a>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about">
+    <div class="container">
+      <div class="about-inner">
+        <div>
+          <p class="section-label">About Jordan</p>
+          <h2 class="section-title">More Than a<br />Trainer</h2>
+          <div class="divider"></div>
+          <p>Jordan Lodge is a celebrity fitness trainer specializing in total-body transformations — in-person and online. With a track record of working alongside high-profile clients and everyday athletes alike, Jordan's approach combines elite programming, accountability, and the mindset work that actually makes results stick.</p>
+          <p style="margin-top:1rem;">Wealthy Minded Fitness isn't just a brand — it's a philosophy. Success in the gym mirrors success in life. Jordan's clients don't just look different. They move different, think different, and live different.</p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Clients Transformed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">8+</div>
+            <div class="stat-label">Years Coaching</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Committed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+    <div class="container">
+      <p class="section-label">What We Offer</p>
+      <h2 class="section-title">Choose Your<br />Path</h2>
+      <div class="divider"></div>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:0;">All programs are built around you. DM for rates and availability.</p>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">🏋️</div>
+          <div class="service-name">In-Person Training</div>
+          <p class="service-desc">One-on-one sessions with Jordan in Denver. Hands-on coaching, real-time form correction, and the energy of training alongside someone who's fully invested in your results.</p>
+          <a href="https://instagram.com/wealthymindedfitness" target="_blank" class="service-cta">DM for Rates</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-badge">Popular</div>
+          <div class="service-icon">📲</div>
+          <div class="service-name">Online Coaching</div>
+          <p class="service-desc">Train anywhere in the world with Jordan's programming in your pocket. Custom plans, weekly check-ins, nutrition guidance, and direct access to Jordan when you need it.</p>
+          <a href="https://instagram.com/wealthymindedfitness" target="_blank" class="service-cta">DM for Rates</a>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🔥</div>
+          <div class="service-name">Transformation Program</div>
+          <p class="service-desc">The full package. A structured, time-bound program combining training, nutrition, and mindset coaching to deliver the most dramatic results of your life — documented and measurable.</p>
+          <a href="https://instagram.com/wealthymindedfitness" target="_blank" class="service-cta">DM for Rates</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <p class="section-label">Results</p>
+      <h2 class="section-title">Real People.<br />Real Change.</h2>
+      <div class="divider"></div>
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">I lost 42 pounds in 16 weeks working with Jordan. But the bigger change? I finally believe I'm capable of anything. He doesn't just train your body — he rewires your mindset.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">MR</div>
+            <div>
+              <div class="author-name">Marcus R.</div>
+              <div class="author-result">−42 lbs · 16 Weeks · Online Coaching</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">I've had trainers before. Jordan is different. He shows up for you every single day — checks in, adjusts the plan, pushes you when you're ready to quit. Best investment I've made in myself.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">TJ</div>
+            <div>
+              <div class="author-name">Taylor J.</div>
+              <div class="author-result">Transformation Program · Denver, CO</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">I'm a CEO. My time is worth a lot. Jordan made every minute count. The program was smart, efficient, and I hit my goal physique in under 3 months. Worth every penny.</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AW</div>
+            <div>
+              <div class="author-name">Alex W.</div>
+              <div class="author-result">In-Person Training · Executive Client</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="instagram">
+    <div class="container">
+      <p class="section-label">Follow the Journey</p>
+      <h2 class="section-title">Stay Connected</h2>
+      <div class="divider" style="margin-left:auto;margin-right:auto;"></div>
+      <a href="https://instagram.com/wealthymindedfitness" target="_blank" class="ig-handle">@wealthymindedfitness</a>
+      <div class="ig-grid">
+        <div class="ig-cell">📸</div>
+        <div class="ig-cell">💪</div>
+        <div class="ig-cell">🔥</div>
+        <div class="ig-cell">🏋️</div>
+        <div class="ig-cell">📸</div>
+        <div class="ig-cell">💚</div>
+      </div>
+      <a href="https://instagram.com/wealthymindedfitness" target="_blank" class="ig-follow-btn">
+        Follow on Instagram
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <p class="section-label">Let's Get to Work</p>
+      <h2 class="section-title">Ready to<br />Transform?</h2>
+      <p>Your next level is waiting. Take the first step — Jordan will take care of the rest.</p>
+      <div class="cta-buttons">
+        <a href="https://instagram.com/wealthymindedfitness" target="_blank" class="btn-primary">DM Jordan on Instagram</a>
+        <a href="mailto:jordan@wealthymindedfitness.com" class="btn-secondary">Send an Email</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Wealthy Minded Fitness</div>
+    <p>© 2026 Jordan Lodge · <a href="https://instagram.com/wealthymindedfitness" target="_blank" style="color:var(--green);text-decoration:none;">@wealthymindedfitness</a></p>
+  </footer>
+
+</body>
+</html>
